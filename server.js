@@ -2,7 +2,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
-const Meal = require("./models/meal.js");
+const Meal = require("./models/meal");
 
 // initialize express app
 const app = express();
@@ -20,7 +20,7 @@ mongoose.connection.on("connected", () => {
 
 
 //middleware functions
-
+app.use(express.urlencoded({ extended: false}));
 
 
 
@@ -35,6 +35,18 @@ app.get("/", async (req, res) => {
 
 app.get("/meals/new", (req, res) => {
   res.render("meals/new.ejs");
+});
+
+// POST /meals
+app.post("/meals", async (req, res) => {
+  
+  if(req.body.containsFiber === "on") {
+    req.body.containsFiber = true;
+  } else {
+    req.body.containsFiber = false;
+  }
+  await Meal.create(req.body);
+  // res.redirect("/meals/new");
 });
 
 app.listen(3000, () => {
