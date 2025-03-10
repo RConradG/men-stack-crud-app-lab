@@ -1,4 +1,4 @@
-<!-- views/fruits/new.ejs -->
+<!-- views/meals/new.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +8,28 @@
     <title>Enter your meal's macros</title>
   </head>
   <body>
-    <h1>Create a new meal!</h1>
+    <h1>Create a New meal!</h1>
+    <form action="/meals" method="post">
+      <label for="mealNumber">Meal Number:</label>
+      <input type="text" name="mealNumber" id="mealNumber">
+      
+      <label for="protein">Protein (grams):</label>
+      <input type="text" name="protein" id="protein">
+      
+      <label for="carbs">Carbs (grams):</label>
+      <input type="text" name="carbs" id="carbs">
+      
+      <label for="fats">Fats (grams):</label>
+      <input type="text" name="fats" id="fats">
+      
+      <label for="containsFiber">Contains Fiber?</label>
+      <input type="checkbox" name="containsFiber" id="containsFiber">
+      
+      <label for="fiberContent">Fiber Content (grams):</label>
+      <input type="text" name="fiberContent" id="fiberContent">
+      
+      <button type="submit">Add Meal</button>
+    </form>
   </body>
 </html>
+<!--  -->
