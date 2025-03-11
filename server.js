@@ -38,6 +38,13 @@ const formatMeals = (meals) => {
   }));
 };
 
+function formatMeal(foundMeal) {
+  return {
+    ...foundMeal.toObject(),
+    date: foundMeal.date ? foundMeal.date.toISOString().split("T")[0] : "",
+  };
+}
+
 // Root path/route "HomePage"
 // GET /
 app.get("/", async (req, res) => {
@@ -60,10 +67,7 @@ app.get("/meals/new", (req, res) => {
 app.get("/meals/:mealId/edit", async (req, res) => {
   const foundMeal = await Meal.findById(req.params.mealId);
 
-  const formattedMeal = { // formats date
-    ...foundMeal.toObject(),
-    date: foundMeal.date ? foundMeal.date.toISOString().split("T")[0] : "",
-  };
+  const formattedMeal = formatMeal(foundMeal);
   res.render("meals/edit.ejs", {
     meal: formattedMeal,
   });
@@ -101,10 +105,7 @@ app.delete("/meals/:mealId", async (req, res) => {
 app.get("/meals/:mealId", async (req, res) => {
   const foundMeal = await Meal.findById(req.params.mealId);
 
-  const formattedMeal = {
-    ...foundMeal.toObject(),
-    date: foundMeal.date ? foundMeal.date.toISOString().split("T")[0] : "",
-  };
+  const formattedMeal = formatMeal(foundMeal);
   res.render("meals/show.ejs", { meal: formattedMeal });
 });
 

@@ -15,7 +15,7 @@
       </ul>
     </nav>
     <h1>Update Meal <%= meal.mealNumber %>!</h1>
-    <h2>Date of Meal: <%= meal.date %></h2>
+    <h2>In case you forget...Date of Meal: <%= meal.date %></h2>
     <form action="/meals/<%=meal._id  %>?_method=PUT" method="post">
       <label for="date">Date:</label>
       <input type="date" name="date" value="<%= meal.date %>" id="date"/>
