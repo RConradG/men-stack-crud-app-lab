@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const mealSchema = new mongoose.Schema({
+  date: Date,
   mealNumber: Number,
   protein: Number,
   carbs: Number,

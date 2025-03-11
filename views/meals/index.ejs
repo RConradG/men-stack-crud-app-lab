@@ -1,0 +1,31 @@
+<!-- views/meals/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Meals Index</title>
+  </head>
+  <body>
+    <h1>All Meals</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/meals/new">Add New Meal</a>
+        </li>
+      </ul>
+    </nav>
+    <p>Hover on a meal number for more details!</p>
+    <ul>
+      <% meals.forEach(meal => { %>
+        <li>
+          Meal Date: <%= meal.date %>,
+         <a href="/meals/<%= meal._id %>"> Meal Number: <%= meal.mealNumber %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+  
+</html>

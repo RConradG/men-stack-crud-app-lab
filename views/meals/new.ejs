@@ -5,11 +5,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Enter your meal's macros</title>
   </head>
   <body>
     <h1>Create a New meal!</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/meals">Back to Meals</a>
+        </li>
+      </ul>
+    </nav>
     <form action="/meals" method="post">
+      <label for="date">Date:</label>
+      <input type="date" name="date" id="date">
+      
       <label for="mealNumber">Meal Number:</label>
       <input type="text" name="mealNumber" id="mealNumber">
       
@@ -32,4 +43,3 @@
     </form>
   </body>
 </html>
-<!--  -->

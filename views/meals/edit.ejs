@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Enter your meal's macros</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/meals">Back to Meals</a>
+        </li>
+      </ul>
+    </nav>
+    <h1>Update Meal <%= meal.mealNumber %>!</h1>
+    <h2>Date of Meal: <%= meal.date %></h2>
+    <form action="/meals/<%=meal._id  %>?_method=PUT" method="post">
+      <label for="date">Date:</label>
+      <input type="date" name="date" value="<%= meal.date %>" id="date"/>
+      
+      <label for="mealNumber">Meal Number:</label>
+      <input type="text" name="mealNumber" value="<%= meal.mealNumber %>"id="mealNumber"/>
+      
+      <label for="protein">Protein (grams):</label>
+      <input type="text" name="protein" value="<%= meal.protein %>" id="protein"/>
+      
+      <label for="carbs">Carbs (grams):</label>
+      <input type="text" name="carbs" value="<%= meal.carbs %>" id="carbs"/>
+      
+      <label for="fats">Fats (grams):</label>
+      <input type="text" name="fats" value="<%= meal.fats %>" id="fats"/>
+      
+      <label for="containsFiber">Contains Fiber?</label>
+      <input type="checkbox" name="containsFiber" <% if (meal.containsFiber) { %>checked<% } %> id="containsFiber"/>
+      
+      <label for="fiberContent">Fiber Content (grams):</label>
+      <input type="text" name="fiberContent" value="<%= meal.fiberContent %>" id="fiberContent"/>
+      
+      <button type="submit">Update Meal</button>
+    </form>
+  </body>
+</html>

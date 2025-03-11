@@ -1,0 +1,35 @@
+<!-- views/meals/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Meal Number: <%= meal.mealNumber %></title> <!-- Dynamic title based on fruit name -->
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/meals/<%= meal._id %>/edit">Edit Meal Number <%= meal.mealNumber %></a>
+        </li>
+        <li>
+          <a href="/meals">Back to Meals</a>
+        </li>
+      </ul>
+    </nav>
+    <h1>Meal Date: <%= meal.date %></h1>
+    <h2>Meal Number: <%= meal.mealNumber%></h2> 
+    <ul>
+      <li>Protein: <%= meal.protein %> grams</li>
+      <li>Carbs: <%= meal.carbs %> grams</li>
+      <li>Fats: <%= meal.fats %> grams</li>
+      <li>Contains Fiber? <%= meal.containsFiber %></li> 
+      <li>Fiber Content: <%= meal.fiberContent %> grams</li>
+      <form action="/meals/<%=meal._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= meal.name %></button>
+      </form>
+    </ul>
+  </body>
+</html>
